@@ -1,5 +1,3 @@
-
-
 module EREDE
   class Environment
     PRODUCTION = "https://api.userede.com.br/erede"
@@ -23,11 +21,11 @@ module EREDE
     end
 
     def to_json(*)
-      {consumer:
-           {
-               ip: @ip,
-               sessionId: @session_id
-           }
+      { consumer:
+          {
+            ip: @ip,
+            sessionId: @session_id
+          }
       }.delete_if { |k, v| v.nil? }.to_json
     end
   end

@@ -8,12 +8,12 @@ module EREDE
 
     def to_json(*)
       {
-          date: @date,
-          from: @from,
-          number: @number,
-          passenger: @passenger,
-          to: @to
-      }.delete_if {|k, v| v.nil?}.to_json
+        date: @date,
+        from: @from,
+        number: @number,
+        passenger: @passenger,
+        to: @to
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(number, from, to, date)

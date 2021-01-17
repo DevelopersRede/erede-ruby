@@ -16,15 +16,15 @@ module EREDE
 
     def to_json(*)
       {
-          amount: @amount,
-          description: @description,
-          discount: @discount,
-          freight: @freight,
-          id: @id,
-          quantity: @quantity,
-          shippingType: @shipping_type,
-          type: @type
-      }.delete_if {|k, v| v.nil?}.to_json
+        amount: @amount,
+        description: @description,
+        discount: @discount,
+        freight: @freight,
+        id: @id,
+        quantity: @quantity,
+        shippingType: @shipping_type,
+        type: @type
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(id, quantity, type = Item::PHYSICAL)

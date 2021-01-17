@@ -6,10 +6,10 @@ module EREDE
 
     def to_json(*)
       {
-          code: @code,
-          departureTax: @departure_tax,
-          flight: @flight
-      }.delete_if {|k, v| v.nil?}.to_json
+        code: @code,
+        departureTax: @departure_tax,
+        flight: @flight
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def add_flight(flight)

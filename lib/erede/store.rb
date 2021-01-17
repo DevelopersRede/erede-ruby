@@ -1,5 +1,3 @@
-
-
 module EREDE
   class Store
     attr_accessor :token,
@@ -19,8 +17,8 @@ module EREDE
 
     def to_json(*)
       {
-          token: @token,
-          pv: @pv
+        token: @token,
+        pv: @pv
       }.delete_if { |k, v| v.nil? }.to_json
     end
   end

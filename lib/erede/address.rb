@@ -1,5 +1,3 @@
-
-
 module EREDE
   class Address
     BILLING = 1
@@ -23,15 +21,15 @@ module EREDE
 
     def to_json(*)
       {
-          address: @address,
-          addresseeName: @addressee_name,
-          city: @city,
-          complement: @complement,
-          neighbourhood: @neighbourhood,
-          number: @number,
-          state: @state,
-          type: @type,
-          zipCode: @zip_code
+        address: @address,
+        addresseeName: @addressee_name,
+        city: @city,
+        complement: @complement,
+        neighbourhood: @neighbourhood,
+        number: @number,
+        state: @state,
+        type: @type,
+        zipCode: @zip_code
       }.delete_if { |k, v| v.nil? }.to_json
     end
   end

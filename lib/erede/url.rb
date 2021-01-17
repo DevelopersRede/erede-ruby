@@ -9,9 +9,9 @@ module EREDE
 
     def to_json(*)
       {
-          kind: @kind,
-          url: @url
-      }.delete_if {|k, v| v.nil?}.to_json
+        kind: @kind,
+        url: @url
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(url, kind = Url::CALLBACK)

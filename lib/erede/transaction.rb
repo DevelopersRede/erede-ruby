@@ -10,10 +10,9 @@ module EREDE
     ORIGIN_MASTERPASS = 6
 
     attr_accessor :amount,
-                  :antifraud,
-                  :antifraud_required,
                   :authorization,
                   :authorization_code,
+                  :brand,
                   :cancel_id,
                   :capture,
                   :card_bin,
@@ -49,44 +48,42 @@ module EREDE
 
     def to_json(*)
       {
-          amount: @amount,
-          antifraud: @antifraud,
-          antifraudRequired: @antifraud_required,
-          authorization: @authorization,
-          authorizationCode: @authorization_code,
-          cancelId: @cancel_id,
-          capture: @capture,
-          cardBin: @card_bin,
-          cardHolderName: @card_holder_name,
-          cardNumber: @card_number,
-          cart: @cart,
-          dateTime: @date_time,
-          distributorAffiliation: @distributor_affiliation,
-          expirationMonth: @expiration_month,
-          expirationYear: @expiration_year,
-          iata: @iata,
-          installments: @installments,
-          kind: @kind,
-          last4: @last4,
-          nsu: @nsu,
-          origin: @origin,
-          reference: @reference,
-          refundDateTime: @refund_date_time,
-          refundId: @refund_id,
-          refunds: @refunds,
-          requestDateTime: @request_date_time,
-          returnCode: @return_code,
-          returnMessage: @return_message,
-          securityCode: @security_code,
-          softDescriptor: @soft_descriptor,
-          storageCard: @storage_card,
-          subscription: @subscription,
-          threeDSecure: @three_d_secure,
-          tid: @tid,
-          urls: @urls,
-          paymentFacilitatorID: @payment_facilitator_id,
-          sub_merchant: @sub_merchant
-      }.delete_if {|k, v| v.nil?}.to_json
+        amount: @amount,
+        authorization: @authorization,
+        authorizationCode: @authorization_code,
+        cancelId: @cancel_id,
+        capture: @capture,
+        cardBin: @card_bin,
+        cardHolderName: @card_holder_name,
+        cardNumber: @card_number,
+        cart: @cart,
+        dateTime: @date_time,
+        distributorAffiliation: @distributor_affiliation,
+        expirationMonth: @expiration_month,
+        expirationYear: @expiration_year,
+        iata: @iata,
+        installments: @installments,
+        kind: @kind,
+        last4: @last4,
+        nsu: @nsu,
+        origin: @origin,
+        reference: @reference,
+        refundDateTime: @refund_date_time,
+        refundId: @refund_id,
+        refunds: @refunds,
+        requestDateTime: @request_date_time,
+        returnCode: @return_code,
+        returnMessage: @return_message,
+        securityCode: @security_code,
+        softDescriptor: @soft_descriptor,
+        storageCard: @storage_card,
+        subscription: @subscription,
+        threeDSecure: @three_d_secure,
+        tid: @tid,
+        urls: @urls,
+        paymentFacilitatorID: @payment_facilitator_id,
+        sub_merchant: @sub_merchant
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(amount = nil, reference = nil)
@@ -100,13 +97,6 @@ module EREDE
       end
 
       @urls.push(Url.new(url, kind))
-    end
-
-    def antifraud(environment)
-      @cart = Cart.new
-      @cart.environment = environment
-
-      @antifraud_required = true
     end
 
     def creditcard(card_number, security_code, expiration_month, expiration_year, holder_name)

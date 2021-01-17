@@ -12,13 +12,13 @@ module EREDE
 
     def to_json(*)
       {
-          cpf: @cpf,
-          documents: @documents,
-          email: @email,
-          gender: @gender,
-          name: @name,
-          phone: @phone
-      }.delete_if {|k, v| v.nil?}.to_json
+        cpf: @cpf,
+        documents: @documents,
+        email: @email,
+        gender: @gender,
+        name: @name,
+        phone: @phone
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(name, email, cpf)

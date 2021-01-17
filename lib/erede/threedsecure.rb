@@ -15,16 +15,16 @@ module EREDE
 
     def to_json(*)
       {
-          cavv: @cavv,
-          eci: @eci,
-          embedded: @embedded,
-          onFailure: @on_failure,
-          url: @url,
-          userAgent: @user_agent,
-          xid: @xid,
-          threeDIndicator: @three_d_indicator,
-          DirectoryServerTransactionId: @directory_server_transaction_id
-      }.delete_if {|k, v| v.nil?}.to_json
+        cavv: @cavv,
+        eci: @eci,
+        embedded: @embedded,
+        onFailure: @on_failure,
+        url: @url,
+        userAgent: @user_agent,
+        xid: @xid,
+        threeDIndicator: @three_d_indicator,
+        DirectoryServerTransactionId: @directory_server_transaction_id
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize

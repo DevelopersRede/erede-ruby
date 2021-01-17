@@ -9,13 +9,13 @@ module EREDE
 
     def to_json(*)
       {
-          billing: @billing,
-          consumer: @consumer,
-          environment: @environment,
-          iata: @iata,
-          items: @items,
-          shipping: @shipping
-      }.delete_if {|k, v| v.nil?}.to_json
+        billing: @billing,
+        consumer: @consumer,
+        environment: @environment,
+        iata: @iata,
+        items: @items,
+        shipping: @shipping
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def address(type = Address::BOTH)

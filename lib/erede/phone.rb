@@ -12,10 +12,10 @@ module EREDE
 
     def to_json(*)
       {
-          ddd: @ddd,
-          number: @number,
-          type: @type
-      }.delete_if {|k, v| v.nil?}.to_json
+        ddd: @ddd,
+        number: @number,
+        type: @type
+      }.delete_if { |k, v| v.nil? }.to_json
     end
 
     def initialize(ddd, number, type = Phone::CELLPHONE)
